@@ -18,7 +18,12 @@ function checkInput(event) {
 
 form.addEventListener(`submit`, event => {
   event.preventDefault();
+  if (feedback.email === `` || feedback.message === ``) {
+    alert(`All form fields must be filled in`);
+    return;
+  }
+  console.log(feedback);
+  feedback = { email: ``, message: `` };
   localStorage.removeItem(`feedback-form-state`);
   form.reset();
-  console.log(feedback);
 });
